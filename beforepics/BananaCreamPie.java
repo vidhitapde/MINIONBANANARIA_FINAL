@@ -28,6 +28,8 @@ public class BananaCreamPie extends Food
     JLabel cream;
     JLabel banana;
     
+    JButton instButton;
+    
     ArrayList<ImageIcon> pieimgs;
     ArrayList<JLabel> ingredients;
     
@@ -44,6 +46,7 @@ public class BananaCreamPie extends Food
     
     
     JButton returnButton;
+    MBFrame mainFrame;
     /**
      * Constructor for objects of class BananaCreamPie
      */
@@ -52,13 +55,16 @@ public class BananaCreamPie extends Food
         super(kit);
         foodName = "assets/bananacreampie.png";
         
+        mainFrame = foodKitchen.getFrame();
+        
         ImageIcon pieIMG = new ImageIcon(getClass().getResource("assets/pie1.png"));
         ImageIcon creamIMG = new ImageIcon(getClass().getResource("assets/cream.png"));
         ImageIcon crustIMG = new ImageIcon(getClass().getResource("assets/piecrust.png"));
         ImageIcon bananaIMG = new ImageIcon(getClass().getResource("assets/bananaslices.png"));
         ImageIcon fillingIMG = new ImageIcon(getClass().getResource("assets/bananafilling.png"));
         ImageIcon returnIMG = new ImageIcon(getClass().getResource("assets/return.png"));
-           
+        ImageIcon instrIMG = new ImageIcon(getClass().getResource("assets/InstrButton.png"));
+        
         pie = new JLabel();
         cream = new JLabel();
         crust = new JLabel();
@@ -104,12 +110,22 @@ public class BananaCreamPie extends Food
            
         returnButton = new JButton();
         returnButton.setFocusable(false);
-        returnButton.setBounds(450,450,350,350);
+        returnButton.setBounds(450,450,350,50);
         returnButton.addActionListener(foodKitchen);
         returnButton.setIcon(returnIMG);
         returnButton.setBackground(new Color(0xFFFFFF));
         returnButton.setContentAreaFilled(false);
         returnButton.setBorder(null);
+        
+        instButton = new JButton();
+        instButton.setFocusable(false);
+        instButton.setBounds(700,-40,290,150);
+        instButton.addActionListener(foodKitchen);
+        instButton.setIcon(instrIMG);
+        instButton.setBackground(new Color(0xFFFFFF));
+        instButton.setContentAreaFilled(false);
+        instButton.setBorder(null);
+        foodKitchen.add(instButton);
             
         previousPoint = new Point(0, 0);
     }
@@ -133,12 +149,22 @@ public class BananaCreamPie extends Food
             }
         }
     }
+    public void actionPerformed(ActionEvent event){
+        if(event.getSource() == instButton){
+            switchToIntro();
+        }
+    }
+    public void switchToIntro(){
+        mainFrame.switchFrame(foodKitchen, mainFrame.getInstPanel());
+        
+    }
     public void addComponents(){
         foodKitchen.add(filling);
         foodKitchen.add(crust);
         foodKitchen.add(banana);
         foodKitchen.add(cream);
         foodKitchen.add(pie);
+        foodKitchen.add(instButton);
     }
     public void removeComponents(){
         foodKitchen.remove(pie);

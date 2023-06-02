@@ -20,6 +20,7 @@ public class BananaSmoothie extends Food implements ActionListener
     JButton downButton;
     JButton checkButton;
     JButton nextButton;
+    JButton instButton;
     
     ImageIcon[] bananaImages;
     ImageIcon[] milkImages;
@@ -89,6 +90,7 @@ public class BananaSmoothie extends Food implements ActionListener
         ImageIcon cupIMG = new ImageIcon(getClass().getResource("assets/cupwithline.png"));
         ImageIcon nextIMG = new ImageIcon(getClass().getResource("assets/next.png"));
         ImageIcon returnIMG = new ImageIcon(getClass().getResource("assets/return.png"));
+        ImageIcon instrIMG = new ImageIcon(getClass().getResource("assets/InstrButton.png"));
         
         bg = new JLabel();
         bg.setIcon(bgIMG);
@@ -150,6 +152,16 @@ public class BananaSmoothie extends Food implements ActionListener
         returnButton.setBackground(new Color(0xFFFFFF));
         returnButton.setContentAreaFilled(false);
         returnButton.setBorder(null);
+        
+        instButton = new JButton();
+        instButton.setFocusable(false);
+        instButton.setBounds(700,-40,290,150);
+        instButton.addActionListener(this);
+        instButton.setIcon(instrIMG);
+        instButton.setBackground(new Color(0xFFFFFF));
+        instButton.setContentAreaFilled(false);
+        instButton.setBorder(null);
+        foodKitchen.add(instButton);
         
         switch2 = false;
         
@@ -293,16 +305,25 @@ public class BananaSmoothie extends Food implements ActionListener
             }
             foodKitchen.getFrame().repaint();
         }
+        if(event.getSource() == instButton){
+            switchToIntro();
+        }
     }
+    public void switchToIntro(){
+        mainFrame.switchFrame(foodKitchen, mainFrame.getInstPanel());
+        
+    }
+
     public void switchTo2(){
         foodKitchen.add(blender);
         foodKitchen.add(nextButton);
         nextButton.setVisible(false);
+        foodKitchen.add(instButton);
     }
     public void switchTo3(){
         foodKitchen.add(smoothiecup);        
         foodKitchen.add(bp);
-        
+        foodKitchen.add(instButton);
         oscillate();
         
         ToppingAction myTA = new ToppingAction(bp, this, timer);

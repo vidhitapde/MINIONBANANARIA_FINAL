@@ -64,16 +64,21 @@ public class BananasFoster extends Food implements ActionListener, MouseListener
     Point previousPoint;
     JLabel focusLabel;
     
+    JButton instButton;
+    
     boolean butterTouch;
     boolean sugarTouch;
     boolean bananaTouch;
     boolean syrupTouch;
     boolean whippedCreamTouch;
     boolean chocolateChipsTouch;
+    MBFrame mainFrame;
     public BananasFoster(KitchenPanel kit) 
     {
         super(kit);
         foodName = "assets/bananasfoster.png";
+        
+        mainFrame = foodKitchen.getFrame();
         
         switch2 = false;
         switch3 = false;
@@ -82,6 +87,7 @@ public class BananasFoster extends Food implements ActionListener, MouseListener
         ImageIcon griddleIMG = new ImageIcon(getClass().getResource("assets/griddle1.png"));
         ImageIcon nextIMG = new ImageIcon(getClass().getResource("assets/next.png"));
         ImageIcon returnIMG = new ImageIcon(getClass().getResource("assets/return.png"));
+        ImageIcon instrIMG = new ImageIcon(getClass().getResource("assets/InstrButton.png"));
         
         griddle = new JLabel();
         griddle.setIcon(griddleIMG);
@@ -228,6 +234,16 @@ public class BananasFoster extends Food implements ActionListener, MouseListener
         ClickListener clickListener = new ClickListener(); 
         DragListener dragListener = new DragListener();
                
+        instButton = new JButton();
+        instButton.setFocusable(false);
+        instButton.setBounds(700,-40,290,150);
+        instButton.addActionListener(foodKitchen);
+        instButton.setIcon(instrIMG);
+        instButton.setBackground(new Color(0xFFFFFF));
+        instButton.setContentAreaFilled(false);
+        instButton.setBorder(null);
+        foodKitchen.add(instButton);
+        
         foodKitchen.addMouseListener(clickListener); 
         foodKitchen.addMouseMotionListener(dragListener); 
         
@@ -252,6 +268,7 @@ public class BananasFoster extends Food implements ActionListener, MouseListener
         foodKitchen.add(banana);
         foodKitchen.add(pan);
         nextButton.setVisible(false);
+        foodKitchen.add(instButton);
         /** 
          * 
          this.add(smoothiecup);        
@@ -284,6 +301,7 @@ public class BananasFoster extends Food implements ActionListener, MouseListener
         foodKitchen.add(plate);
         foodKitchen.add(pancake1);
         oscillate(pancake1); 
+        foodKitchen.add(instButton);
         
         pancakeAction myTA = new pancakeAction(pancake1, this, timer);
         InputMap pancake1Input = pancake1.getInputMap(pancake1.WHEN_IN_FOCUSED_WINDOW);
@@ -297,7 +315,7 @@ public class BananasFoster extends Food implements ActionListener, MouseListener
         foodKitchen.add(whippedCream);
         foodKitchen.add(chocolateChips);
         foodKitchen.add(pancakePlate);
-        
+        foodKitchen.add(instButton);
     }
     public void mouseClicked(MouseEvent e){
         JLabel currBatter = null;
@@ -408,6 +426,12 @@ public class BananasFoster extends Food implements ActionListener, MouseListener
             }
             foodKitchen.getFrame().repaint();
         }
+        if(event.getSource() == instButton){
+            switchToIntro();
+        }
+    }
+    public void switchToIntro(){
+        mainFrame.switchFrame(foodKitchen, mainFrame.getInstPanel());
         
     }
      private class ClickListener extends MouseAdapter 
