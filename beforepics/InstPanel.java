@@ -37,12 +37,12 @@ public class InstPanel extends JLayeredPane implements ActionListener
         exit.setContentAreaFilled(false);
         exit.setBorder(null);
         
-        ImageIcon upIMG = new ImageIcon(getClass().getResource("assets/upbutton.png"));
-        ImageIcon downIMG = new ImageIcon(getClass().getResource("assets/downbutton.png"));
+        ImageIcon upIMG = new ImageIcon(getClass().getResource("assets/rightbutton.png")); //right button
+        ImageIcon downIMG = new ImageIcon(getClass().getResource("assets/leftbutton.png")); //left button
         
         upButton = new JButton();
         upButton.setFocusable(false);
-        upButton.setBounds(100,250,100,100);
+        upButton.setBounds(800,600,100,100);
         upButton.addActionListener(this);
         upButton.setIcon(upIMG);
         upButton.setBackground(new Color(0xFFFFFF));
@@ -51,7 +51,7 @@ public class InstPanel extends JLayeredPane implements ActionListener
         
         downButton = new JButton();
         downButton.setFocusable(false);
-        downButton.setBounds(100,400,100,100);
+        downButton.setBounds(100,600,100,100);
         downButton.addActionListener(this);
         downButton.setIcon(downIMG);
         downButton.setBackground(new Color(0xFFFFFF));
