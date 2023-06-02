@@ -42,7 +42,7 @@ public class InstPanel extends JLayeredPane implements ActionListener
         
         upButton = new JButton();
         upButton.setFocusable(false);
-        upButton.setBounds(800,600,100,100);
+        upButton.setBounds(800,600,107,100);
         upButton.addActionListener(this);
         upButton.setIcon(upIMG);
         upButton.setBackground(new Color(0xFFFFFF));
@@ -51,7 +51,7 @@ public class InstPanel extends JLayeredPane implements ActionListener
         
         downButton = new JButton();
         downButton.setFocusable(false);
-        downButton.setBounds(100,600,100,100);
+        downButton.setBounds(100,600,107,100);
         downButton.addActionListener(this);
         downButton.setIcon(downIMG);
         downButton.setBackground(new Color(0xFFFFFF));
