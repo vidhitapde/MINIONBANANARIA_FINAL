@@ -388,7 +388,7 @@ public class BananaSmoothie extends Food implements ActionListener
             public void actionPerformed(ActionEvent e){
                 bp.setLocation(xcoord,ycoord);
                 ycoord+=5;
-                if(xcoord > 320 && xcoord <445){
+                if(xcoord > 320 && xcoord <455){
                     if(ycoord == 175){
                         timer.setRepeats(false);
                         foodKitchen.add(retButton);
