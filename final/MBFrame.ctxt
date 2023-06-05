@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=MBFrame
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ MBFrame\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=MBFrame()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ MBFrame\r\n
+comment10.params=
+comment10.target=int\ getScore()
+comment2.params=
+comment2.target=void\ stopMusic()
+comment3.params=currentPane\ newPane
+comment3.target=void\ switchFrame(javax.swing.JLayeredPane,\ javax.swing.JLayeredPane)
+comment4.params=
+comment4.target=Restaurant\ getRestaurant()
+comment5.params=
+comment5.target=StartPanel\ getStartPanel()
+comment6.params=
+comment6.target=InstPanel\ getInstPanel()
+comment7.params=
+comment7.target=RestaurantPanel\ getRestaurantPanel()
+comment8.params=
+comment8.target=KitchenPanel\ getKitchenPanel()
+comment9.params=
+comment9.target=EndPanel\ getEndPanel()
+numComments=11
